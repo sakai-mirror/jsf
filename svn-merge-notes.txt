@@ -1,0 +1,25 @@
+Skipped merges:
+
+Revision: 13777
+
+Author: chmaurer@iupui.edu
+
+Date: 12:30:02 PM, Wednesday, August 16, 2006
+
+Message:
+
+http://bugs.osportfolio.org/jira/browse/OSP-1566
+Added better support for the passing of length and width properties to the InputRichTextRenderer.
+A Portfolio Layout can now specify the rows/cols or length/width to text areas.
+
+----
+
+Modified : /jsf/trunk/widgets/src/java/org/sakaiproject/jsf/renderer/InputRichTextRenderer.java
+
+Modified : /osp/trunk/presentation/tool/src/java/org/theospi/portfolio/presentation/render/TextTypeTagHandler.java
+
+
+
+
+
+
