@@ -33,10 +33,15 @@ import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 import javax.faces.render.Renderer;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.sakaiproject.jsf.util.LocaleUtil;
 import org.sakaiproject.jsf.util.RendererUtil;
 
 public class PagerRenderer extends Renderer
 {	
+	private static final Log log = LogFactory.getLog(PagerRenderer.class);
+	private static final String BUNDLE_NAME = "org.sakaiproject.jsf.bundle.pager";
 	
 	public void encodeBegin(FacesContext context, UIComponent component) throws IOException
 	{
@@ -50,8 +55,10 @@ public class PagerRenderer extends Renderer
 		
 		int totalItems = getInt(context, component, "totalItems", 0);
 		int firstItem = getInt(context, component, "firstItem", 0);
+		
 		int pageSize = getInt(context, component, "pageSize", 0);
 		int lastItem = getInt(context, component, "lastItem", -1);
+		if (log.isDebugEnabled()) log.debug("encodeBegin: firstItem=" + firstItem + ", pageSize=" + pageSize + ", value=" + getString(context, component, "value", null));
 		
 		// in case we are rendering before decode()ing we need to adjust the states 
 		adjustState(context, component, firstItem, lastItem, pageSize, totalItems, firstItem, lastItem, pageSize);
@@ -229,6 +236,7 @@ public class PagerRenderer extends Renderer
 	    int lastItem = getInt(context, component, "lastItem", 0);
 	    int pageSize = getInt(context, component, "pageSize", 0);
 	    int totalItems = getInt(context, component, "totalItems", 0);
+		if (log.isDebugEnabled()) log.debug("decode: firstItem=" + firstItem + ", pageSize=" + pageSize + ", value=" + getString(context, component, "value", null));
 	    
 		int newFirstItem = firstItem;
 		int newLastItem = lastItem;
@@ -268,6 +276,10 @@ public class PagerRenderer extends Renderer
 		adjustState(context, component, firstItem, lastItem, pageSize, totalItems, newFirstItem, newLastItem, newPageSize);
 	}
 	
+	private static String formatValue(int firstItem, int pageSize) {
+		return firstItem + "," + pageSize;
+	}
+	
 	/** 
 	 * Save the new paging state back to the given component (adjusting firstItem and lastItem first if necessary)
 	 */
@@ -291,12 +303,19 @@ public class PagerRenderer extends Renderer
 	    	
 		// Set value, which causes registered valueChangeListener to be called
 		EditableValueHolder evh = (EditableValueHolder) component;
-		String newValue = newFirstItem + "," + newPageSize;
-		if (!newValue.equals(evh.getValue()))
+		String newValue = formatValue(newFirstItem, newPageSize);
+		Object oldValue = (String)evh.getValue();
+		if (!newValue.equals(oldValue))
 		{
-			evh.setSubmittedValue(newValue);
-			evh.setValid(true);
-	    }
+			if (oldValue != null) {
+				evh.setSubmittedValue(newValue);
+				evh.setValid(true);
+			} else {
+				// Need to initialize value string based on initial parameters.
+				if (log.isDebugEnabled()) log.debug("initializing value to " + newValue);
+				evh.setValue(newValue);
+			}
+		}
 	}
 	
 	/** 
