@@ -35,7 +35,6 @@ import javax.faces.render.Renderer;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.sakaiproject.jsf.util.LocaleUtil;
 import org.sakaiproject.jsf.util.RendererUtil;
 
 public class PagerRenderer extends Renderer
@@ -378,7 +377,6 @@ public class PagerRenderer extends Renderer
 		return null;
 	}
 	
-	private static final String BUNDLE_NAME = "org.sakaiproject.jsf.bundle.pager";
 	/** Return a string gotten from this widget's resource bundle */ 
 	private static String getFromBundle(FacesContext context, String name)
 	{
