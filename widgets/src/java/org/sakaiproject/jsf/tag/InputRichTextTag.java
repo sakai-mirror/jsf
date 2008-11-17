@@ -84,7 +84,6 @@ public class InputRichTextTag
   private String lang;
   private String attachedFiles;
   private String collectionBase;
-   private String sessionId;
 
   public void setValue(String newValue)
   {
@@ -158,7 +157,6 @@ public class InputRichTextTag
     TagUtil.setString(component, "justArea", justArea);
     TagUtil.setString(component, "attachedFiles", attachedFiles);
     TagUtil.setString(component, "collectionBase", collectionBase);
-    TagUtil.setString(component, "sessionId", sessionId);
   }
 
   public void release()
@@ -194,7 +192,6 @@ public class InputRichTextTag
     lang = null;
     attachedFiles = null;
     collectionBase = null;
-    sessionId = null;
   }
 
 
@@ -459,11 +456,4 @@ public class InputRichTextTag
       this.collectionBase = melete;
    }
 
-   public String getSessionId() {
-      return sessionId;
-   }
-
-   public void setSessionId(String sessionId) {
-      this.sessionId = sessionId;
-   }
 }

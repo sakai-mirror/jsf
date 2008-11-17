@@ -288,20 +288,20 @@ public class InputRichTextRenderer extends Renderer
        if ("archival".equals(ServerConfigurationService.getString("tags.focus")))
           writer.write("\n\toFCKeditor.Config['CustomConfigurationsPath'] = \"/library/editor/FCKeditor/archival_config.js\";\n");
        else {
-         String sessionId = (String) RendererUtil.getAttribute(context, component, "sessionId");
+
          writer.write("\n\t\tvar collectionId = \"" + collectionId  + "\";");
          writer.write("\n\toFCKeditor.Config['ImageBrowserURL'] = oFCKeditor.BasePath + " +
-               "\"editor/filemanager/browser/default/browser.html?Connector=" + connector + "&Type=Image&CurrentFolder=\" + collectionId +\"" + createSessionIdParam(sessionId) + "\";");
+               "\"editor/filemanager/browser/default/browser.html?Connector=" + connector + "&Type=Image&CurrentFolder=\" + collectionId;");
          writer.write("\n\toFCKeditor.Config['LinkBrowserURL'] = oFCKeditor.BasePath + " +
-               "\"editor/filemanager/browser/default/browser.html?Connector=" + connector + "&Type=Link&CurrentFolder=\" + collectionId +\"" + createSessionIdParam(sessionId) + "\";");
+               "\"editor/filemanager/browser/default/browser.html?Connector=" + connector + "&Type=Link&CurrentFolder=\" + collectionId;");
          writer.write("\n\toFCKeditor.Config['FlashBrowserURL'] = oFCKeditor.BasePath + " +
-               "\"editor/filemanager/browser/default/browser.html?Connector=" + connector + "&Type=Flash&CurrentFolder=\" + collectionId +\"" + createSessionIdParam(sessionId) + "\";");
+               "\"editor/filemanager/browser/default/browser.html?Connector=" + connector + "&Type=Flash&CurrentFolder=\" + collectionId;");
          writer.write("\n\toFCKeditor.Config['ImageUploadURL'] = oFCKeditor.BasePath + " +
-               "\"" + connector + "?Type=Image&Command=QuickUpload&Type=Image&CurrentFolder=\" + collectionId +\"" + createSessionIdParam(sessionId) + "\";");
+               "\"" + connector + "?Type=Image&Command=QuickUpload&Type=Image&CurrentFolder=\" + collectionId;");
          writer.write("\n\toFCKeditor.Config['FlashUploadURL'] = oFCKeditor.BasePath + " +
-               "\"" + connector + "?Type=Flash&Command=QuickUpload&Type=Flash&CurrentFolder=\" + collectionId +\"" + createSessionIdParam(sessionId) + "\";");
+               "\"" + connector + "?Type=Flash&Command=QuickUpload&Type=Flash&CurrentFolder=\" + collectionId;");
          writer.write("\n\toFCKeditor.Config['LinkUploadURL'] = oFCKeditor.BasePath + " +
-               "\"" + connector + "?Type=File&Command=QuickUpload&Type=Link&CurrentFolder=\" + collectionId +\"" + createSessionIdParam(sessionId) + "\";");
+               "\"" + connector + "?Type=File&Command=QuickUpload&Type=Link&CurrentFolder=\" + collectionId;");
 
          writer.write("\n\n\toFCKeditor.Config['CurrentFolder'] = collectionId;");
 
@@ -336,14 +336,7 @@ public class InputRichTextRenderer extends Renderer
     }
   }
 
-   protected String createSessionIdParam(String sessionId) {
-      if (sessionId == null) {
-         return "";
-      }
-      return "&editorId=" + sessionId;
-   }
-
-   /**
+  /**
    * Return the config script portion for a standard button set.
    * @param buttonSet
    * @return

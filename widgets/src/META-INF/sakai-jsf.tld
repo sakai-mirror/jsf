@@ -1647,15 +1647,6 @@
           interactions with in the editor, such as the FCK file browser.
       </description>
     </attribute>
-    <attribute>
-      <name>sessionId</name>
-      <required>false</required>
-      <rtexprvalue>false</rtexprvalue>
-      <description>
-          id to help the fck servlet determine which session variables apply to 
-          this editor
-      </description>
-    </attribute>
   </tag>
 
   <tag>
