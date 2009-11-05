@@ -19,6 +19,7 @@
             <groupId>org.sakaiproject.jsf</groupId>
             <artifactId>jsf-resource</artifactId>
             <version>${project.version}</version>
+            <type>war</type>
             <scope>compile</scope>
         </dependency>
     </dependencies>
