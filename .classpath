@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="jsf-app/src/java"/>
+	<classpathentry kind="src" path="jsf-spreadsheet/src/java"/>
+	<classpathentry kind="src" path="jsf-tool/src/java"/>
+	<classpathentry kind="src" path="jsf-widgets-sun/src/java"/>
+	<classpathentry kind="src" path="jsf-widgets/src/java"/>
+	<classpathentry kind="src" path="myfaces-widgets/src/java"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
