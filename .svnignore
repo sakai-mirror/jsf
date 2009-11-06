@@ -1,7 +1,6 @@
 .DS_Store
 .checkstyle
-.classpath
-.project
+
 .settings
 bin
 maven-eclipse.xml
