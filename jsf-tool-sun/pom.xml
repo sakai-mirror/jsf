@@ -35,27 +35,22 @@
         <dependency>
             <groupId>jsf</groupId>
             <artifactId>jsf-impl</artifactId>
-            <version>1.1.01</version>
         </dependency>
         <dependency>
             <groupId>jsf</groupId>
             <artifactId>jsf-api</artifactId>
-            <version>1.1.01</version>
         </dependency>
         <dependency>
             <groupId>commons-fileupload</groupId>
             <artifactId>commons-fileupload</artifactId>
-            <version>1.1.1</version>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jsp-api</artifactId>
-            <version>2.0</version>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
-            <version>1.0.2</version>
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
