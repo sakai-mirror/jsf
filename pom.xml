@@ -11,7 +11,7 @@
     <name>Sakai JSF Base POM (jsf)</name>
     <groupId>org.sakaiproject.jsf</groupId>
     <artifactId>jsf</artifactId>
-    <version>2.7.12</version>
+    <version>2.7.13-SNAPSHOT</version>
     <packaging>pom</packaging>
     
     <properties>
@@ -35,9 +35,9 @@
     </modules>
 
     <scm>
-        <connection>scm:svn:https://source.sakaiproject.org/svn/jsf/tags/jsf-2.7.12</connection>
-        <developerConnection>scm:svn:https://source.sakaiproject.org/svn/jsf/tags/jsf-2.7.12</developerConnection>
-        <url>https://source.sakaiproject.org/svn/jsf/tags/jsf-2.7.12</url>
+        <connection>scm:svn:https://source.sakaiproject.org/svn/jsf/branches/jsf-2.7.x</connection>
+        <developerConnection>scm:svn:https://source.sakaiproject.org/svn/jsf/branches/jsf-2.7.x</developerConnection>
+        <url>https://source.sakaiproject.org/svn/jsf/branches/jsf-2.7.x</url>
     </scm>
     
     <distributionManagement>
