@@ -53,15 +53,18 @@
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>jsf-tool</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>jsf-app</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>myfaces-widgets-depend</artifactId>
             <type>pom</type>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>commons-digester</groupId>
