@@ -172,8 +172,8 @@ public class InputRichTextRenderer extends Renderer
 
     try
     {
-      Integer cols = (Integer) RendererUtil.getAttribute(context, component, "cols");
-      Integer rows = (Integer) RendererUtil.getAttribute(context, component, "rows");
+      Integer cols = Integer.parseInt("" + RendererUtil.getAttribute(context, component, "cols"));
+      Integer rows = Integer.parseInt("" + RendererUtil.getAttribute(context, component, "rows"));
       if (cols != null) textareaColumns = cols.intValue();
       if (rows != null) textareaRows = rows.intValue();
       
@@ -202,6 +202,20 @@ public class InputRichTextRenderer extends Renderer
 
 	ServerConfigurationService serverConfigurationService = (ServerConfigurationService)ComponentManager.get(ServerConfigurationService.class.getName());
     String editor = serverConfigurationService.getString("wysiwyg.editor");
+    
+    
+    writer.write("<table border=\"0\"><tr><td>");
+    writer.write("<textarea name=\"" + clientId + "_inputRichText\" id=\"" + clientId + "_inputRichText\"");
+    if (textareaColumns > 0) writer.write(" cols=\""+textareaColumns+"\"");
+    if (textareaRows > 0) writer.write(" rows=\""+textareaRows+"\"");
+    writer.write(">");
+    if (value != null)
+       writer.write((String) value);
+    writer.write("</textarea>");
+    
+    writer.write("<script type=\"text/javascript\">sakai.editor.launch('" + clientId + "_inputRichText', '', '" + widthPx + "','" + heightPx + "');</script>");
+
+    /*
     if(editor != null && !editor.equalsIgnoreCase("FCKeditor"))
     {
       // Render JavaScripts.
@@ -336,6 +350,7 @@ public class InputRichTextRenderer extends Renderer
        }
        writer.write("</td></tr></table>\n");
     }
+    */
   }
 
   /**
