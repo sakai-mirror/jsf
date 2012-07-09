@@ -215,6 +215,8 @@ public class InputRichTextRenderer extends Renderer
     
     writer.write("<script type=\"text/javascript\">sakai.editor.launch('" + clientId + "_inputRichText', '', '" + widthPx + "','" + heightPx + "');</script>");
 
+    writer.write("</td></tr></table>\n");
+
     /*
     if(editor != null && !editor.equalsIgnoreCase("FCKeditor"))
     {
